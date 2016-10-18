@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>School Client</title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>Cors Request</h3>
+        <button id="btnGet">Get Students</button>
+        <pre id="preOutput"></pre>
+    </div>
+    <script>
+    var baseUrl = "http://localhost:52256/";
+    $(function () {
+        var getStudents = function () {
+            var url = baseUrl + "api/students/";
+            $.get(url).always(showResponse);
+            return false;
+        };
+
+        var showResponse = function (object) {
+            $("#preOutput").text(JSON.stringify(object, null, 4));
+        };
+
+        $("#btnGet").click(getStudents);
+    });
+    </script>
+</body>
+</html>
