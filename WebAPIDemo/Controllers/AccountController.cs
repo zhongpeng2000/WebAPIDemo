@@ -16,11 +16,13 @@ using Microsoft.Owin.Security.OAuth;
 using WebAPIDemo.Models;
 using WebAPIDemo.Providers;
 using WebAPIDemo.Results;
+using System.Web.Http.Cors;
 
 namespace WebAPIDemo.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+    [EnableCors("*", "*", "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
